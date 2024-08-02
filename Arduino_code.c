@@ -1,4 +1,4 @@
-/*! \file Controller.c */
+/*! \file Arduino_code.c */
 #include <Arduino.h>
 #include <stdbool.h>
 #include <avr/wdt.h>

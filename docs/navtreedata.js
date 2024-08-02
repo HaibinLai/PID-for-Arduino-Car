@@ -25,11 +25,25 @@
 var NAVTREE =
 [
   [ "PID for Arduino-based Car", "index.html", [
+    [ "Contributor Covenant Code of Conduct", "md__c_o_d_e___o_f___c_o_n_d_u_c_t.html", [
+      [ "Our Pledge", "md__c_o_d_e___o_f___c_o_n_d_u_c_t.html#autotoc_md1", null ],
+      [ "Our Standards", "md__c_o_d_e___o_f___c_o_n_d_u_c_t.html#autotoc_md2", null ],
+      [ "Enforcement Responsibilities", "md__c_o_d_e___o_f___c_o_n_d_u_c_t.html#autotoc_md3", null ],
+      [ "Scope", "md__c_o_d_e___o_f___c_o_n_d_u_c_t.html#autotoc_md4", null ],
+      [ "Enforcement", "md__c_o_d_e___o_f___c_o_n_d_u_c_t.html#autotoc_md5", null ],
+      [ "Enforcement Guidelines", "md__c_o_d_e___o_f___c_o_n_d_u_c_t.html#autotoc_md6", [
+        [ "Correction", "md__c_o_d_e___o_f___c_o_n_d_u_c_t.html#autotoc_md7", null ],
+        [ "Warning", "md__c_o_d_e___o_f___c_o_n_d_u_c_t.html#autotoc_md8", null ],
+        [ "Temporary Ban", "md__c_o_d_e___o_f___c_o_n_d_u_c_t.html#autotoc_md9", null ],
+        [ "Permanent Ban", "md__c_o_d_e___o_f___c_o_n_d_u_c_t.html#autotoc_md10", null ]
+      ] ],
+      [ "Attribution", "md__c_o_d_e___o_f___c_o_n_d_u_c_t.html#autotoc_md11", null ]
+    ] ],
     [ "PID Line Following Algorithm for Arduino-based Car", "md_docs_2_r_e_a_d_m_e.html", null ],
     [ "PID Line Following Algorithm for Arduino-based Car", "md__r_e_a_d_m_e.html", [
-      [ "PID Algorithm Overview", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
-      [ "Arduino Introduction", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
-      [ "Conclusion", "md__r_e_a_d_m_e.html#autotoc_md4", null ]
+      [ "PID Algorithm Overview", "md__r_e_a_d_m_e.html#autotoc_md14", null ],
+      [ "Arduino Introduction", "md__r_e_a_d_m_e.html#autotoc_md15", null ],
+      [ "Conclusion", "md__r_e_a_d_m_e.html#autotoc_md16", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -48,7 +62,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_controller_8c.html"
+"annotated.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

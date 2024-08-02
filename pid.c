@@ -1,6 +1,6 @@
 /*! \file pid.c */
 #include <stdio.h>
-#include <Controller.c>
+#include <Arduino_code.c>
 
 // PID控制器结构体定义
 typedef struct {
