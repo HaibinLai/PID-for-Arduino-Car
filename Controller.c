@@ -1,3 +1,4 @@
+/*! \file Controller.c */
 #include <Arduino.h>
 #include <stdbool.h>
 #include <avr/wdt.h>
@@ -47,6 +48,13 @@ int current_status = 0;
 
 int max_speed = 30;
 
+/*!
+  \li Low drag
+ 
+  \li This function takes turn the clock down;
+ 
+  \return MsTimer2::stop()
+ */
 void Low_Speed(){
     max_speed = 80;
     cursor_speed += 40;
