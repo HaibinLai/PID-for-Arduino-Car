@@ -96,7 +96,26 @@ $(function(){initNavTree('md__r_e_a_d_m_e.html',''); initResizable(); });
   <div class="headertitle"><div class="title">PID Line Following Algorithm for Arduino-based Car</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a> PID Line Following Algorithm for Arduino-based Car </p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md1"></a> When designing an Arduino-based car, the PID (Proportional-Integral-Derivative) line following algorithm is an effective control method that ensures the car travels steadily along a predefined path. Here's a brief overview of this algorithm:</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+PID Algorithm Overview</h1>
+<p>The PID controller relies on three main parameters: Proportional (P), Integral (I), and Derivative (D). These parameters are adjusted to precisely guide the car based on sensor-detected track positions:</p>
+<p><b>Proportional (P)</b>: Adjusts the control output based on the current error, allowing the car to approach the center of the track more rapidly.</p>
+<p><b>Integral (I)</b>: Corrects long-term deviations by accumulating historical errors, ensuring the system maintains stability over extended periods.</p>
+<p><b>Derivative (D)</b>: Predicts error rate changes to prevent overshooting or oscillations, achieving smooth track tracking.</p>
+<p><img src="image.png" alt="PID control flow" class="inline"/></p>
+<p><img src="image-1.png" alt="PID formula" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Arduino Introduction</h1>
+<p>Arduino is an open-source electronics prototyping platform that provides accessible hardware and software tools for creating interactive projects. Its components include:</p>
+<p>Development Boards: Mainboards based on microcontrollers like Arduino UNO, Arduino Mega, etc.</p>
+<p>Integrated Development Environment (IDE): Software tool used for writing and uploading code to Arduino boards.</p>
+<p>Library Functions: Pre-built function libraries that simplify control from sensors to actuators.</p>
+<p><img src="image-2.png" alt="Arduino" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Conclusion</h1>
+<p>The PID line following algorithm harnesses the flexibility and user-friendliness of Arduino, making the design and debugging of Arduino-based cars efficient and effective. By fine-tuning PID parameters, stable navigation along complex tracks can be achieved, empowering robotics control and automation projects.</p>
+<p>This approach not only offers theoretical advantages but also practical applications that leverage Arduino's dynamics effectively. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
