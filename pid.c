@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <Controller.c>
 
 // PID控制器结构体定义
 typedef struct {
@@ -66,16 +67,19 @@ int main() {
 
     // 模拟时间步
     int time_steps = 50;
-    for (int i = 0; i < time_steps; ++i) {
-        // 更新PID控制器并获取控制信号
-        double control_signal = PID_Update(&pid, current_temp);
+    // for (int i = 0; i < time_steps; ++i) {
+    //     // 更新PID控制器并获取控制信号
+    //     double control_signal = PID_Update(&pid, current_temp);
 
-        // 模拟加热系统的响应（调整当前温度）
-        current_temp += control_signal;
+    //     // 模拟加热系统的响应（调整当前温度）
+    //     current_temp += control_signal;
 
-        // 输出当前温度和控制信号
-        printf("Current Temperature: %.2f °C, Control Signal: %.2f\n", current_temp, control_signal);
-    }
+    //     // 输出当前温度和控制信号
+    //     printf("Current Temperature: %.2f °C, Control Signal: %.2f\n", current_temp, control_signal);
+    // }
+
+    setup();
+    loop();
 
     return 0;
 }
