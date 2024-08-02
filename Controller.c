@@ -34,7 +34,7 @@ int cursor_speed = 100;
     variable
 */ 
 
-// 判断I/O口传感器信号状态,白色为0，黑色为1
+/*判断I/O口传感器信号状态,白色为0，黑色为1*/ 
 int rr = 0;
 int rm = 0;
 int md = 0;
