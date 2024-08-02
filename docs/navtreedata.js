@@ -25,17 +25,30 @@
 var NAVTREE =
 [
   [ "PID Line Following Algorithm for Arduino-based Car", "index.html", [
-    [ "PID Line Following Algorithm for Arduino-based Car", "md__r_e_a_d_m_e.html", null ],
+    [ "PID Line Following Algorithm for Arduino-based Car", "md_docs_2_r_e_a_d_m_e.html", null ],
+    [ "PID Line Following Algorithm for Arduino-based Car", "md__r_e_a_d_m_e.html", [
+      [ "PID Algorithm Overview", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
+      [ "Arduino Introduction", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
+      [ "Conclusion", "md__r_e_a_d_m_e.html#autotoc_md4", null ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ]
+    ] ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ],
+        [ "Variables", "globals_vars.html", null ]
+      ] ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"_controller_8c.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
