@@ -1,17 +1,8 @@
 import asyncio
-import math
-import os
-# import opentuner
-import re
 import threading
-import time
-
+import serial
 from bayes_opt import BayesianOptimization
 from bayes_opt.util import UtilityFunction
-
-
-
-# from colorama import Fore
 
 try:
     import json
@@ -27,17 +18,17 @@ except ImportError:
 
 # hyper parameter
 Number_of_iter = 30
-file_path = '/work/ssc-laihb/haibin/hpl-2.3/testing'
-WAITING_TIME = 320
-COMPILE_TIME = 60
-LSF_TIME = 20
 
 # for bayesian
 Kappa = 3
 Xi = 1
 
+serial_port = 'COM4'
 
-def black_box_function(N_rate, NBs_rate, NBMIN, BCAST):
+ser = serial.Serial(serial_port, 9600, timeout=1)  # 根据实际串口号和波特率设置
+
+
+def black_box_function(P, I, D):
     """Function with unknown internals we wish to maximize.
 
     This is just serving as an example, however, for all intents and
@@ -45,16 +36,34 @@ def black_box_function(N_rate, NBs_rate, NBMIN, BCAST):
     which generates its outputs values, as unknown.
     """
 
+    pid_bytes = bytes([P, I, D])
+    try:
+        # Send PID bytes to serial port
+        ser.write(pid_bytes)
+        print(f"Sent PID values: P={P}, I={I}, D={D} to serial port {serial_port}")
+    except serial.SerialException as e:
+        print(f"Error writing to serial port: {e}")
 
-    return N_rate+NBs_rate-NBMIN-BCAST
+    answer = 0
+
+    try:
+        while True:
+            if ser.in_waiting > 0:
+                data = ser.read(ser.in_waiting)
+                print("接收到的数据:", data.decode('utf-8'))  # 解码为字符串并打印
+                answer = data.decode('utf-8')
+    except serial.SerialException as e:
+        print("串口读取错误:", e)
+
+    return answer
 
 
 class BayesianOptimizationHandler(RequestHandler):
     """Basic functionality for NLP handlers."""
-    HPL_para = {"N_rate": (80, 100), "NBs_rate": (0, 100), "NBMIN": (2, 15), "BCAST": (0, 5)}
+    PID_para = {"D": (2, 15), "I": (0, 100), "P": (80, 100)}
     _bo = BayesianOptimization(
         f=black_box_function,
-        pbounds=HPL_para
+        pbounds=PID_para
     )
     _uf = UtilityFunction(kind="ucb", kappa=Kappa, xi=Xi)
 
@@ -67,7 +76,7 @@ class BayesianOptimizationHandler(RequestHandler):
                 params=body["params"],
                 target=body["target"],
             )
-            print("BO has registered: {} points.".format(len(self._bo.space)), end="\n\n")
+            print("BO has registered: {} points.".format(len(self._bo.space)), end="\n")
         except KeyError:
             pass
         finally:
@@ -122,14 +131,22 @@ def run_optimizer():
 
 if __name__ == "__main__":
 
-    print("welcome to bayesian_optimization on HPL")
+    print("welcome to bayesian_optimization on PID Control")
 
+    ser.write(b'1')  # 发送字符 '1'，需要转换为字节类型
 
-    time.sleep(COMPILE_TIME)
+    try:
+        while True:
+            if ser.in_waiting > 0:
+                data = ser.read(ser.in_waiting)
+                print("小车匹配成功！")  # 解码为字符串并打印
+                answer = data.decode('utf-8')
+    except serial.SerialException as e:
+        print("串口读取错误:", e)
 
     ioloop = tornado.ioloop.IOLoop.instance()
     optimizers_config = [
-        {"name": "HPL Optimizer"},
+        {"name": "PID Optimizer"},
     ]
 
     app_thread = threading.Thread(target=run_optimization_app)
@@ -153,3 +170,5 @@ if __name__ == "__main__":
         print(result[0], "found a maximum value of: {}".format(result[1]))
 
     ioloop.stop()
+
+    ser.close()
